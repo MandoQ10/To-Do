@@ -1,13 +1,14 @@
-# README
+# To-Do App 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This To-Do app uses Heroku for production. Ruby on Rails for backend
 
-Things you may want to cover:
+To run locally, run 'rails server'
 
-* Ruby version
+# Specifications
 
-* System dependencies
+* Ruby version: 2.6.3
+
+* System dependencies: Ruby, Ruby on Rails, run 'bundle install' to download dependencies
 
 * Configuration
 
