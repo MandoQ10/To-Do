@@ -32,3 +32,15 @@ jobs:
       run: bundle install
     - name: Run tests
       run: bundle exec rspec
+      
+  deploy-heroku:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: 58ca150a-3658-428e-84ce-ffdab11f6473
+          heroku_app_name: serene-citadel-00972
+          heroku_email: aquintana@8thlight.com
+  
+  
