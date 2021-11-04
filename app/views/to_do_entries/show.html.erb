@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @to_do_entry.title %>
+</p>
+
+<%= link_to 'Edit', edit_to_do_entry_path(@to_do_entry) %> |
+<%= link_to 'Back', to_do_entries_path %>
