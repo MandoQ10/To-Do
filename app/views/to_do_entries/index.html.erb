@@ -12,16 +12,17 @@
 
   <tbody>
     <% @to_do_entries.each do |to_do_entry| %>
-      <tr>
+    <tr>
         <td><%= to_do_entry.title %></td>
-        <td><%= link_to 'Show', to_do_entry %></td>
+        <!--  <td><%= link_to 'Show', to_do_entry %></td>
         <td><%= link_to 'Edit', edit_to_do_entry_path(to_do_entry) %></td>
         <td><%= link_to 'Destroy', to_do_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    -->
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New To Do Entry', new_to_do_entry_path %>
+<!-- <%= link_to 'New To Do Entry', new_to_do_entry_path %> -->
