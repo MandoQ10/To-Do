@@ -4,9 +4,11 @@ This To-Do app uses Heroku for production. Ruby on Rails for backend
 
 To run locally, run 'rails server'
 
-Visit Dummy To-Dos with the normal url 
+# Heroku likes: 
 
-Visit Manually created To-Dos via db with '/to_do_entries' path 
+Dummy To-Dos: https://serene-citadel-00972.herokuapp.com
+
+db created To-dos: https://serene-citadel-00972.herokuapp.com/to_do_entries
 
 # Specifications
 
