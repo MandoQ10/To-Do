@@ -1,0 +1,2 @@
+class ToDoEntry < ApplicationRecord
+end
