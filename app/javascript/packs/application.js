@@ -11,6 +11,7 @@ import "channels"
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require create_to_do
 
 Rails.start()
 Turbolinks.start()

@@ -20,19 +20,19 @@ class ToDoEntriesController < ApplicationController
   # end
 
   # # POST /to_do_entries or /to_do_entries.json
-  # def create
-  #   @to_do_entry = ToDoEntry.new(to_do_entry_params)
+  def create
+    @to_do_entry = ToDoEntry.new(to_do_entry_params)
 
-  #   respond_to do |format|
-  #     if @to_do_entry.save
-  #       format.html { redirect_to @to_do_entry, notice: "To do entry was successfully created." }
-  #       format.json { render :show, status: :created, location: @to_do_entry }
-  #     else
-  #       format.html { render :new, status: :unprocessable_entity }
-  #       format.json { render json: @to_do_entry.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+    respond_to do |format|
+      if @to_do_entry.save
+        format.html { redirect_to to_do_entries_path, notice: "To do entry was successfully created." }
+        format.json { render :show, status: :created, location: @to_do_entry }
+      else
+        format.html { redirect_to to_do_entries_path, notice: @to_do_entry.errors.full_messages }
+        format.json { render json: @to_do_entry.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # # PATCH/PUT /to_do_entries/1 or /to_do_entries/1.json
   # def update
@@ -64,6 +64,6 @@ class ToDoEntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def to_do_entry_params
-      params.require(:to_do_entry).permit(:title)
+      params.permit(:title)
     end
 end
