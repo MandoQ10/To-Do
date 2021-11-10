@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <%= stylesheet_link_tag 'to_do_entries', media: 'all' %>
 
-<h1>Your Checklist</h1>
+<h1>Your To-Dos</h1>
 
 <div class="container">
   <div class="row">
@@ -13,7 +13,19 @@
         </div>
     <% end %>
   </div>
+
   <div class="row justify-content-end">
-    <button type="button" class="btn btn-primary">Create New To-Do</button>
+    <button type="button" id="present-pop-up" class="btn btn-primary">Create New To-Do</button>
   </div>
+
 </div>
+  
+<div id="create-to-do-pop-up">
+  <%= form_with model: @to_do_entry do |form| %>
+      <%= form.label "Your New To-Do Title", class: "form-label" %>
+      <%= form.text_field :title, class: "form-control"%>
+      <%= form.submit class: "btn btn-primary"%>
+      <button type="button" id="dismiss-create-popup"class="btn btn-danger">Cancel</button>
+  <% end %>
+</div>
+<%= javascript_pack_tag 'create_to_do'%>
