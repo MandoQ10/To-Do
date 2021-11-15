@@ -1,10 +1,28 @@
 body {
     color: #333;
     margin: 33px; 
-    z-index: -1;}
+    z-index: -1;
+}
 
-button {
-    width: 25% !important;
+#edit {
+    background-image: image-url("pencil-edit.png");
+    background-repeat: no-repeat;
+    height: 25px !important;
+}
+
+#delete {
+    background-image: image-url("trash.png");
+    background-repeat: no-repeat;
+    height: 25px !important;
+}
+
+#options-container {
+    display: inline !important;
+    float: right;
+}
+
+.row form {
+    display: inline;
 }
 
 .label {
