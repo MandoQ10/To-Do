@@ -20,12 +20,8 @@ class ToDoEntriesController < ApplicationController
     @to_do_entry = ToDoEntry.find(params[:id])
   end
 
-  def update_completion  
-    render text: 'Thanks for sending a GET request with cURL!'
-  end
-
   # # POST /to_do_entries or /to_do_entries.json
-  def create
+  def create 
     @to_do_entry = ToDoEntry.new(to_do_entry_params)
 
     respond_to do |format|
@@ -41,10 +37,11 @@ class ToDoEntriesController < ApplicationController
 
   # # PATCH/PUT /to_do_entries/1 or /to_do_entries/1.json
   def update
-    
+    @to_do_entry = ToDoEntry.find(params[:id])
     respond_to do |format|
-      if @to_do_entry.update(title: params[:to_do_entry][:title], completed: params[:to_do_entry][:completed])
-        format.html { redirect_to to_do_entries_path, notice: "To do entry was successfully updated." }
+      
+      if @to_do_entry.update(params.require(:to_do_entry).permit(:title, :completed))
+        format.html { redirect_to to_do_entries_path, notice: "To do entry was successfully updated" }
         format.json { render :show, status: :ok, location: @to_do_entry }
       else
         format.html { render :edit, status: :unprocessable_entity }

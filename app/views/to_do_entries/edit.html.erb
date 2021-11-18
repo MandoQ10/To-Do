@@ -1,6 +1,12 @@
 <h1>Editing To Do Entry</h1>
 
 <%= form_with model: @to_do_entry do |form| %>
+    <% if @to_do_entry.errors %>
+        <% @to_do_entry.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    <% end %>
+    
     <%= form.label "Current Title", class: "form-label" %>
     <%= form.text_field :title, class: "form-control"%>
     <%= form.label "Completion Status:",  class: "form-label"%>
@@ -8,5 +14,6 @@
     <%= form.submit class: "btn btn-primary"%>
 <% end %>
 
+  
 <%= link_to 'Show', @to_do_entry %> |
 <%= link_to 'Back', to_do_entries_path %>
