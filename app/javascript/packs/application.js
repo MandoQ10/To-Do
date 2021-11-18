@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 //= require jquery3
+//= require rails-ujs
 //= require popper
 //= require bootstrap-sprockets
 //= require create_to_do
