@@ -40,7 +40,7 @@ class ToDoEntriesController < ApplicationController
     @to_do_entry = ToDoEntry.find(params[:id])
     respond_to do |format|
       
-      if @to_do_entry.update(params.require(:to_do_entry).permit(:title, :completed))
+      if @to_do_entry.update(params.require(:to_do_entry).permit(:title, :completed, :due_date))
         format.html { redirect_to to_do_entries_path, notice: "To do entry was successfully updated" }
         format.json { render :show, status: :ok, location: @to_do_entry }
       else
@@ -67,6 +67,6 @@ class ToDoEntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def to_do_entry_params
-      params.permit(:title, :completed)
+      params.permit(:title, :completed, :due_date)
     end
 end
