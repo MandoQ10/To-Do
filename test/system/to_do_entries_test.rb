@@ -2,19 +2,21 @@ require "application_system_test_case"
 require 'selenium-webdriver'
 
 @driver = Selenium::WebDriver.for :chrome
+@today_date = Date.today.to_formatted_s(:long) 
 
 class ToDoEntriesTest < ApplicationSystemTestCase
   setup do
     @to_do_entry = to_do_entries(:one)
   end
 
-  # test "To-do can be marked as completed" do 
-  #   visit to_do_entries_url
-  #   find('input[class="update-298486374"]').set(true)
+  test "To-do can be marked as completed" do 
+    visit to_do_entries_url
+
+    find(class: "update-#{@to_do_entry.id}").click
     
-  #   assert_selector "p",text: "To do entry was successfully updated"   
-  #   assert_selector "span", text: @to_do_entry.title
-  # end 
+    assert_text "To do entry was successfully updated"   
+    assert_selector "span", text: @to_do_entry.title
+  end 
 
   test "visiting the index" do
     visit to_do_entries_url
@@ -48,7 +50,7 @@ class ToDoEntriesTest < ApplicationSystemTestCase
 
   test "updating a To do entry" do
     visit to_do_entries_url
-    click_on "edit", match: :first
+    click_on(id: "edit-#{@to_do_entry.id}")
 
     fill_in "to_do_entry[title]", with: "Update To-Do"
     click_on "Update To do entry"
@@ -59,7 +61,7 @@ class ToDoEntriesTest < ApplicationSystemTestCase
   test "destroying a To do entry" do
     visit to_do_entries_url
     accept_confirm do
-      click_on "Destroy", match: :first
+      click_on(id: "delete-#{@to_do_entry.id}")
     end
   end 
 
@@ -75,7 +77,7 @@ class ToDoEntriesTest < ApplicationSystemTestCase
 
     assert_text "To do entry was successfully created"
     assert_text @to_do_entry.title
-    assert_text "November 22, 2021"
+    assert_text @today_date
   end 
 
   test "should create a To-Do without a due date" do
