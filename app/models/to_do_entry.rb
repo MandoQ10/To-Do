@@ -5,6 +5,14 @@ class ToDoEntry < ApplicationRecord
             self[:due_date].to_formatted_s(:long)     
         end
     end 
+
+    def due_date_passed? 
+        if self[:due_date]
+            if self[:due_date] < Date.today
+                "past-due"
+            end
+        end
+    end
      
     validates :title, presence: true
     validates :due_date, date: { after_or_equal_to: Proc.new {Date.today},
