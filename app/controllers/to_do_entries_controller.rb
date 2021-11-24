@@ -3,9 +3,8 @@ class ToDoEntriesController < ApplicationController
   skip_before_action :verify_authenticity_token
   # GET /to_do_entries or /to_do_entries.json
   def index
-    @to_do_entries = ToDoEntry.order("due_date")
+    @to_do_entries = ToDoEntry.all.sort(&:sort_date)
   end
-
   # GET /to_do_entries/1 or /to_do_entries/1.json
   def show
   end

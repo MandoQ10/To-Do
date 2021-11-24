@@ -16,8 +16,13 @@ body {
     height: 25px !important;
 }
 
-#options-container {
-    display: inline !important;
+.completion-checkbox {
+    
+    margin-top: 17px !important;
+}
+
+#options-container > * {
+    margin-top: 10px;
     float: right;
 }
 

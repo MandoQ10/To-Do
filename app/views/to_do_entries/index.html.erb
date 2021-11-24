@@ -6,14 +6,18 @@
 <div class="container">
   <div class="row">
     <% @to_do_entries.each_with_index do |to_do_entry, index| %>
-        <div class="card <%= to_do_entry.due_date_passed?%>">
-          <div class="card-body">
-            <span id="title-<%= to_do_entry.id%>"><%= to_do_entry.title %></span> <br>
-            <span><%= to_do_entry.formatted_date%></span>
-            <div id="options-container">
-              <%= link_to "", edit_to_do_entry_path(to_do_entry), :id => "edit-#{to_do_entry.id}", :class => "edit btn btn-lg btn"%>    
+        <div class="card">
+          <div class="card-body row">
+            <div class="col col-1 <%= to_do_entry.due_date_passed?%>">
+              <%= image_tag "over-due.png" %>
+            </div>
+            <div class="col">
+              <span class="title" id="title-<%= to_do_entry.id%>"><%= to_do_entry.title %></span> <br>
+              <span><%= to_do_entry.formatted_date%></span></div>
+            <div id="options-container" class="col">
+              <%= check_box_tag("update-completion", to_do_entry.id, to_do_entry.completed, class: "completion-checkbox", allow_label_click: true) %>
               <%= link_to "", to_do_entry_path(to_do_entry), method: :delete, :data => {:confirm => "Are you sure you want to delete this To-Do?"}, :id => "delete-#{to_do_entry.id}", :class => " delete btn btn-lg btn"%>
-              <%= check_box_tag("update-completion", to_do_entry.id, to_do_entry.completed, :class => "update-#{to_do_entry.id}", allow_label_click: true) %>
+              <%= link_to "", edit_to_do_entry_path(to_do_entry), :id => "edit-#{to_do_entry.id}", :class => "edit btn btn-lg btn"%>    
             </div>
           </div>
         </div>
