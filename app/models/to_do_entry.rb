@@ -32,7 +32,7 @@ class ToDoEntry < ApplicationRecord
         end
     end 
 
-    def due_date_passed? 
+    def due_date_passed_tag 
         if self[:due_date]
             if self[:due_date] < Date.today
                 "past-due"
