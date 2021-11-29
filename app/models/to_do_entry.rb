@@ -35,9 +35,11 @@ class ToDoEntry < ApplicationRecord
     def due_date_passed_tag 
         if self[:due_date]
             if self[:due_date] < Date.today
-                "past-due"
+                return "past-due"
             end
         end
+
+        "not-due"
     end
      
     validates :title, presence: true

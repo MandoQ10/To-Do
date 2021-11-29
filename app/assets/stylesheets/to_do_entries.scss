@@ -17,7 +17,6 @@ body {
 }
 
 .completion-checkbox {
-    
     margin-top: 17px !important;
 }
 
@@ -31,7 +30,11 @@ body {
 }
 
 .past-due {
-    background-color: rgb(156, 154, 154) !important;
+    display: block;
+}
+
+.not-due {
+    display: none;
 }
 
 .label {

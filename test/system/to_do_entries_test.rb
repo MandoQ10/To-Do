@@ -13,6 +13,11 @@ class ToDoEntriesTest < ApplicationSystemTestCase
     @to_do_entry_3 = to_do_entries(:four)
   end
 
+  test "Over due To-Dos should have exclamation point image" do
+    visit to_do_entries_url 
+    assert_selector(class: 'past-due', count: 1)
+  end
+
   test "To-Do ordering should be arranged from upcoming to future date" do
     visit to_do_entries_url 
     list_of_to_dos = all(class: "card-body")
@@ -29,8 +34,8 @@ class ToDoEntriesTest < ApplicationSystemTestCase
 
   test "To-do can be marked as completed" do 
     visit to_do_entries_url
-
-    find(class: "update-#{@to_do_entry.id}").click
+    
+    find(id: "update-#{@to_do_entry.id}").click
     
     assert_text "To do entry was successfully updated"   
     assert_selector "span", text: @to_do_entry.title

@@ -19,7 +19,7 @@ function toggleStrikedThroughText(isChecked, toDoID){
     }
 }
 
-var allToDoCheckBoxes = document.querySelectorAll("#update-completion");
+var allToDoCheckBoxes = document.querySelectorAll(".completion-checkbox");
 
 function updateCompletion(checkBox){
     $.ajax({
