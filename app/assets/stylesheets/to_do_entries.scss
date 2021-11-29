@@ -4,25 +4,37 @@ body {
     z-index: -1;
 }
 
-#edit {
+.edit {
     background-image: image-url("pencil-edit.png");
     background-repeat: no-repeat;
     height: 25px !important;
 }
 
-#delete {
+.delete {
     background-image: image-url("trash.png");
     background-repeat: no-repeat;
     height: 25px !important;
 }
 
-#options-container {
-    display: inline !important;
+.completion-checkbox {
+    margin-top: 17px !important;
+}
+
+#options-container > * {
+    margin-top: 10px;
     float: right;
 }
 
 .row form {
     display: inline;
+}
+
+.past-due {
+    display: block;
+}
+
+.not-due {
+    display: none;
 }
 
 .label {

@@ -3,9 +3,8 @@ class ToDoEntriesController < ApplicationController
   skip_before_action :verify_authenticity_token
   # GET /to_do_entries or /to_do_entries.json
   def index
-    @to_do_entries = ToDoEntry.all
+    @to_do_entries = ToDoEntry.all.sort(&:sort_date)
   end
-
   # GET /to_do_entries/1 or /to_do_entries/1.json
   def show
   end
@@ -40,7 +39,7 @@ class ToDoEntriesController < ApplicationController
     @to_do_entry = ToDoEntry.find(params[:id])
     respond_to do |format|
       
-      if @to_do_entry.update(params.require(:to_do_entry).permit(:title, :completed))
+      if @to_do_entry.update(params.require(:to_do_entry).permit(:title, :completed, :due_date))
         format.html { redirect_to to_do_entries_path, notice: "To do entry was successfully updated" }
         format.json { render :show, status: :ok, location: @to_do_entry }
       else
@@ -67,6 +66,6 @@ class ToDoEntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def to_do_entry_params
-      params.permit(:title, :completed)
+      params.permit(:title, :completed, :due_date)
     end
 end

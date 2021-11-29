@@ -1,7 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
+  id: 1
+  title: New To-Do
+  due_date: "`r format(Sys.time(), '%Y %B, %D')`"
 
 two:
-  title: MyString
+  id: 2
+  title: 2nd To-Do
+  due_date: 2022-02-02
+
+three:
+  id: 3
+  title: 3rd To-Do
+  due_date: 2020-11-25
+
+four:
+  id: 4
+  title: 4th To-Do

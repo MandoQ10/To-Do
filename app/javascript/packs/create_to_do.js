@@ -8,17 +8,19 @@ function dismissPopUp(){
 
 function toggleStrikedThroughText(isChecked, toDoID){
     let toDo = document.getElementById('title-' + toDoID);
-  
+    let toDoCard = toDo.parentElement.parentElement;
+
     if(isChecked){
+        toDoCard.style.backgroundColor = "rgb(156, 154, 154)";
         toDo.style.textDecoration = "line-through";
     }else{
+        toDoCard.style.backgroundColor = "white";
         toDo.style.textDecoration = "none";
     }
 }
 
-var allToDoCheckBoxes = document.querySelectorAll("#update-completion");
+var allToDoCheckBoxes = document.querySelectorAll(".completion-checkbox");
 
-console.log(allToDoCheckBoxes.length)
 function updateCompletion(checkBox){
     $.ajax({
         type: "PATCH",

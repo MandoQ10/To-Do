@@ -11,6 +11,8 @@
     <%= form.text_field :title, class: "form-control"%>
     <%= form.label "Completion Status:",  class: "form-label"%>
     <%= form.check_box :completed%> <br>
+    <%= form.label "Due Date:",  class: "form-label"%>
+    <%= form.date_field :due_date, class: "form-control"%>
     <%= form.submit class: "btn btn-primary"%>
 <% end %>
 
