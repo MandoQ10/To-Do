@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<%= stylesheet_link_tag 'lists', media: 'all' %>
+<h1>Lists</h1>
+
+<div class="container">
+  <% @lists.each do |list| %>
+    <div class="row">
+
+      <div class="card">
+
+        <div class="card-body row">
+      
+          <div class="col">
+            <span>List #<%= list.id %></span>
+          </div>
+
+          <div class="col options-container">
+            <%= link_to 'View', list_to_do_entries_path(list) %>
+            <%= link_to 'Delete', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+
+        </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<%= link_to 'New List', new_list_path %>
