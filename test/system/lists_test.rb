@@ -20,20 +20,10 @@ class ListsTest < ApplicationSystemTestCase
     click_on "Back"
   end
 
-  test "updating a List" do
-    visit lists_url
-    click_on "Edit", match: :first
-
-    click_on "Update List"
-
-    assert_text "List was successfully updated"
-    click_on "Back"
-  end
-
   test "destroying a List" do
     visit lists_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Delete", match: :first
     end
 
     assert_text "List was successfully destroyed"
