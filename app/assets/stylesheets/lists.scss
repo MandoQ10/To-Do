@@ -1,0 +1,10 @@
+.options-container > a {
+    float: right;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.options-container {
+    display: flex;
+    justify-content: flex-end;
+}

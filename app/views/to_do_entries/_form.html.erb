@@ -1,4 +1,4 @@
-<%= form_with(model: to_do_entry) do |form| %>
+<%= form_with(model: [@list, to_do_entry]) do |form| %>
   <% if to_do_entry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(to_do_entry.errors.count, "error") %> prohibited this to_do_entry from being saved:</h2>

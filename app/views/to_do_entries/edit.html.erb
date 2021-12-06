@@ -1,6 +1,6 @@
 <h1>Editing To Do Entry</h1>
 
-<%= form_with model: @to_do_entry do |form| %>
+<%= form_with model: [@list, @to_do_entry] do |form| %>
     <% if @to_do_entry.errors %>
         <% @to_do_entry.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -15,7 +15,3 @@
     <%= form.date_field :due_date, class: "form-control"%>
     <%= form.submit class: "btn btn-primary"%>
 <% end %>
-
-  
-<%= link_to 'Show', @to_do_entry %> |
-<%= link_to 'Back', to_do_entries_path %>

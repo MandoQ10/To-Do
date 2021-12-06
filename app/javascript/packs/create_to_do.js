@@ -24,7 +24,7 @@ var allToDoCheckBoxes = document.querySelectorAll(".completion-checkbox");
 function updateCompletion(checkBox){
     $.ajax({
         type: "PATCH",
-        url: "/to_do_entries/" + checkBox.value,
+        url: "/lists/" + checkBox.id + "/to_do_entries/" + checkBox.value,
         data: {
             to_do_entry:{
                 completed: checkBox.checked
